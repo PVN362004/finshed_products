@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="finished_product_report" model="ir.actions.report">
+        <field name="name">In Tem San Pham</field>
+        <field name="model">finished.product</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">finshed_products.action_report_finished_product_tag</field>
+        <field name="report_file">finshed_products.action_report_finished_product_tag</field>
+        <field name="binding_model_id" ref="model_finished_product"/>
+        <field name="binding_type">report</field>
+    </record>
+
+
+</odoo>

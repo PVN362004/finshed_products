@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_finished_product_form" model="ir.ui.view">
+        <field name="name">finished.product.form</field>
+        <field name="model">finished.product</field>
+        <field name="arch" type="xml">
+            <form string="Tem thanh pham">
+                <sheet>
+                    <group>
+                        <field name="product_name"/>
+                        <field name="product_code"/>
+                        <field name="customer_order_name"/>
+                        <field name="quantity"/>
+                        <field name="date_finished"/>
+                        <field name="delivery_date"/>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+    
+    <record id="view_finished_product_list" model="ir.ui.view">
+        <field name="name">finished.product.list</field>
+        <field name="model">finished.product</field>
+        <field name="arch" type="xml">
+            <list string="Tem thanh pham">
+                <field name="product_code"/>
+                <field name="product_name"/>
+                <field name="customer_order_name"/>
+                <field name="quantity"/>
+                <field name="date_finished"/>
+                <field name="delivery_date"/>
+            </list>
+        </field>
+    </record>
+    <record id="action_finished_product" model="ir.actions.act_window">
+        <field name="name">Tem thanh pham</field>
+        <field name="res_model">finished.product</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="menu_finished_product_root"
+                name="Tem thanh pham"
+                sequence="10"/>
+    
+    <menuitem id="menu_finished_product_action"
+                name="Tem thanh pham"
+                parent="menu_finished_product_root"
+                action="action_finished_product"
+                sequence="10"/>
+    
+
+              
+</odoo>

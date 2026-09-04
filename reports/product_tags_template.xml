@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <template id='action_report_finished_product_tag'>
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="o">
+                <t t-call="web.external_layout">
+                    <div class="page" style="break-after: always; margin-bottom: 20px;">
+                        <table style="width: 100%; border-collapse: collapse; border: 2px solid black">
+                            <tr style="font-weight: bold; height: 30px;">
+                                <td style="width: 33%; border: 1px solid black; text-align: center;">Ma Hang</td>
+                                <td style="width: 33%; border: 1px solid black; text-align: center;">Ten Hang</td>
+                                <td style="width: 34%; border: 1px solid black; text-align: center;">So Luong</td>
+                            </tr>
+
+
+                            <tr style="height: 40px;">
+                                <td style="width: 33%; border: 1px solid black; text-align: center;"><span t-field="o.product_code"/></td>
+                                <td style="width: 33%; border: 1px solid black; text-align: center;"><span t-field="o.product_name"/></td>
+                                <td style="width: 34%; border: 1px solid black; text-align: center;"><span t-field="o.quantity"/></td>
+                            </tr>
+
+                            <tr style="font-weight: bold; height: 30px;">
+                                <td style="width: 33%; border: 1px solid black; text-align: center;">Ten Khach Hang</td>
+                                <td style="width: 33%; border: 1px solid black; text-align: center;">Ngay Giao Hang</td>
+                                <td style="width: 34%; border: 1px solid black; text-align: center;">Ngay Nhap</td>
+                            </tr>
+
+                            <tr style="height: 40px;">
+                                <td style="width: 33%; border: 1px solid black; text-align: center;"><span t-field="o.customer_order_name"/></td>
+                                <td style="width: 33%; border: 1px solid black; text-align: center;"><span t-field="o.delivery_date"/></td>
+                                <td style="width: 34%; border: 1px solid black; text-align: center;"><span t-field="o.date_finished"/></td>
+                            </tr>
+
+
+                        </table>
+                    </div>
+                </t>
+            </t>
+        </t>
+    </template>
+
+</odoo>
