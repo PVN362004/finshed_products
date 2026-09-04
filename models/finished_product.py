@@ -1,5 +1,6 @@
 from datetime import date
 from odoo import api, models, fields
+import math
 
 
 class FinishedProduct(models.Model):
@@ -36,7 +37,7 @@ class FinishedProduct(models.Model):
     def compute_quantity_per_pallet(self):
         for record in self:
             if  record.pallet_number > 0:
-                record.quantity_per_pallet = record.quantity // record.pallet_number
+                record.quantity_per_pallet = math.ceil(record.quantity / record.pallet_number)
             else:
                 record.quantity_per_pallet = 0
 
