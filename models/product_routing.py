@@ -14,3 +14,5 @@ class ProductRouting(models.Model):
     quantity= fields.Integer(related='product_relate.quantity', string='So luong', store=True)
     delivery_date= fields.Date(related='product_relate.delivery_date', string='Ngay giao', store=True)
     pallet_number= fields.Integer(related='product_relate.pallet_number', string='So pallet', store=True)
+    note = fields.Text(related='product_relate.note',string='Ghi chu')
+

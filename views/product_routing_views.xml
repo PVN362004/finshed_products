@@ -14,6 +14,7 @@
                         <field name="quantity" class="text-center"/>
                         <field name="delivery_date"/>
                         <field name="pallet_number"/>
+                        <field name="note"/>
                     </group>
                 </sheet>
             </form>
@@ -31,6 +32,8 @@
                 <field name="quantity" string="Số lượng" class="text-center"/>
                 <field name="delivery_date" string="Ngày giao"/>
                 <field name="pallet_number" string="Số pallet" class="text-center"/>
+                <field name="note" string="Ghi chú"/>
+
 
             </list>
         </field>
