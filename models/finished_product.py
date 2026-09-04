@@ -6,6 +6,7 @@ import math
 class FinishedProduct(models.Model):
     _name = 'finished.product'
     _description = 'Finished Product Model'
+    _rec_name = 'product_name'
 
     product_code = fields.Char(string='Ma hang', required=True)
     product_name = fields.Char(string='Ten hang', required=True)
