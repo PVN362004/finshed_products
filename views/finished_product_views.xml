@@ -9,10 +9,14 @@
                     <group>
                         <field name="product_name"/>
                         <field name="product_code"/>
-                        <field name="customer_order_name"/>
-                        <field name="quantity"/>
+                        <field name="customer_name"/>
+                        <field name="quantity" class="text-center"/>
                         <field name="date_finished"/>
                         <field name="delivery_date"/>
+                        <field name="pallet_number"/>
+                        <field name="quantity_per_pallet" readonly="1"/>
+                        <field name="note"/>
+                        <field name="manufacturing_date"/>
                     </group>
                 </sheet>
             </form>
@@ -24,15 +28,20 @@
         <field name="model">finished.product</field>
         <field name="arch" type="xml">
             <list string="Tem thanh pham">
-                <field name="product_code"/>
-                <field name="product_name"/>
-                <field name="customer_order_name"/>
-                <field name="quantity"/>
-                <field name="date_finished"/>
-                <field name="delivery_date"/>
+                <field name="product_code" string="Mã hàng"/>
+                <field name="product_name" string="Tên hàng"/>
+                <field name="customer_name" string="Khách hàng"/>
+                <field name="quantity" string="Số lượng" class="text-center"/>
+                <field name="manufacturing_date" string="Ngày sản xuất"/>
+                <field name="delivery_date" string="Ngày giao"/>
+                <field name="pallet_number" string="Số pallet" class="text-center"/>
+                <field name="quantity_per_pallet" string="SL/Pallet" class="text-center" readonly="1"/>
+                <field name="date_finished" string="Ngày nhập"/>
+                <field name="note" string="Ghi chú"/>
             </list>
         </field>
     </record>
+
     <record id="action_finished_product" model="ir.actions.act_window">
         <field name="name">Tem thanh pham</field>
         <field name="res_model">finished.product</field>
@@ -48,7 +57,5 @@
                 parent="menu_finished_product_root"
                 action="action_finished_product"
                 sequence="10"/>
-    
 
-              
 </odoo>
