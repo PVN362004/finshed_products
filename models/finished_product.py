@@ -7,21 +7,26 @@ class FinishedProduct(models.Model):
     _description = 'Finished Product Model'
     _rec_name = 'product_name'
 
-    product_code = fields.Char(string='Ma hang', required=True)
-    product_name = fields.Char(string='Ten hang', required=True)
-    customer_name = fields.Many2one('customer.partner', string='Ten khach hang', ondelete='restrict')
+    product_code = fields.Char(string='Mã hàng', required=True)
+    product_name = fields.Char(string='Tên hàng', required=True)
 
-    quantity = fields.Integer(string='So luong', required=True, default=1)
-    manufacturing_date = fields.Date(string='Ngay san xuat', required=True, default=date.today())
-    delivery_date = fields.Date(string='Ngay giao hang', required=True, default=date.today())
+    quantity = fields.Integer(string='Số lượng đơn', required=False, default=1)
+    manufacturing_date = fields.Date(string='Ngày sản xuất', required=True, default=date.today())
+    delivery_date = fields.Date(string='Ngày giao hàng ', required=True, default=date.today())
 
-    pallet_number = fields.Integer(string='So pallet', required=True, default=1)
-    quantity_per_pallet = fields.Integer(string='So luong tren pallet',compute='compute_quantity_per_pallet', store=True)
+    pallet_number = fields.Integer(string='Số pallet', required=False, default=1)
+    quantity_per_pallet = fields.Integer(string='Số lượng trên pallet',compute='compute_quantity_per_pallet', store=True)
     date_finished = fields.Datetime(
-            string='Ngay Nhap', 
+            string='Ngày nhập', 
             default=lambda self: self._get_default_date_finished()
         ) 
-    note = fields.Text(string='Ghi chu')
+    note = fields.Text(string='Ghi chú khác')
+
+
+    customer_name = fields.Many2one('customer.partner', string='Tên khách hàng', ondelete='restrict')
+    customer_email = fields.Char(string='Email')
+    customer_phone_number = fields.Char(string='SDT', required=True)
+    customer_address = fields.Char(string='Địa chỉ', required=True)
 
     @api.model
     def _get_default_date_finished(self):
@@ -40,7 +45,6 @@ class FinishedProduct(models.Model):
                 record.quantity_per_pallet = math.ceil(record.quantity / record.pallet_number)
             else:
                 record.quantity_per_pallet = 0
-
 
 
 class CustomerPartner(models.Model):

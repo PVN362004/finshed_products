@@ -9,7 +9,7 @@
     'data': [
         'security/ir.model.access.csv',
         'views/finished_product_views.xml',
-        'views/product_routing_views.xml',
+        'views/customer_inf.xml',
         'reports/report.xml',
         'reports/product_tags_template.xml',
     ],

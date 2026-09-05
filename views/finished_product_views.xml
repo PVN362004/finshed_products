@@ -4,19 +4,34 @@
         <field name="name">finished.product.form</field>
         <field name="model">finished.product</field>
         <field name="arch" type="xml">
-            <form string="Thong tin san pham">
+            <form string="Thông tin sản phẩm">
                 <sheet>
+                    <div class="oe_title">
+                        <label for="product_name" string="Tên hàng"/>
+                        <h1>
+                            <field name="product_name"
+                                placeholder="VD: Pin"
+                                default_focus="1"
+                                options="{'line_breaks': False}"
+                                class="w-100 text-break"/>
+                        </h1>
+                    </div>
                     <group>
-                        <field name="product_name"/>
-                        <field name="product_code"/>
-                        <field name="customer_name"/>
-                        <field name="quantity"/>
-                        <field name="date_finished"/>
-                        <field name="delivery_date"/>
-                        <field name="pallet_number"/>
-                        <field name="quantity_per_pallet" readonly="1"/>
+                        <group>
+                            <field name="product_code"/>
+                            <field name="quantity"/>
+                            <field name="customer_name"/>
+                            <field name="delivery_date"/>
+                        </group>
+                        <group>
+                            <field name="date_finished"/>
+                            <field name="pallet_number"/>
+                            <field name="quantity_per_pallet" readonly="1"/>
+                            <field name="manufacturing_date"/>
+                        </group>
+                    </group>
+                    <group>
                         <field name="note"/>
-                        <field name="manufacturing_date"/>
                     </group>
                 </sheet>
             </form>
@@ -27,33 +42,37 @@
         <field name="name">finished.product.list</field>
         <field name="model">finished.product</field>
         <field name="arch" type="xml">
-            <list string="Thong tin san pham">
-                <field name="product_code" string="Mã hàng"/>
+            <list string="Thông tin sản phẩm">
+                <field name="product_code" string="Mã hàng" width="100px"/>
                 <field name="product_name" string="Tên hàng"/>
                 <field name="customer_name" string="Khách hàng"/>
-                <field name="quantity" string="Số lượng" class="text-center"/>
-                <field name="manufacturing_date" string="Ngày sản xuất"/>
-                <field name="delivery_date" string="Ngày giao"/>
-                <field name="pallet_number" string="Số pallet" class="text-center"/>
-                <field name="quantity_per_pallet" string="SL/Pallet" class="text-center" readonly="1"/>
-                <field name="date_finished" string="Ngày nhập"/>
-                <field name="note" string="Ghi chú"/>
+                <field name="manufacturing_date" string="Ngày sản xuất" width="150px"/>
+                <field name="delivery_date" string="Ngày giao" width="140px"/>
+                <field name="date_finished" string="Ngày nhập" width="120px"/>
+                <field name="quantity" string="Số lượng đơn" optional="hide"/>
+                <field name="pallet_number" string="Số pallet" optional="hide"/>
+                <field name="quantity_per_pallet" string="SL/Pallet" readonly="1" optional="hide"/>
+                <field name="note" string="Ghi chú khác"/>
             </list>
         </field>
     </record>
 
     <record id="action_finished_product" model="ir.actions.act_window">
-        <field name="name">Thong tin san pham</field>
+        <field name="name">Thông tin sản phẩm</field>
         <field name="res_model">finished.product</field>
         <field name="view_mode">list,form</field>
+        <field name="view_ids" eval="[(5, 0, 0),
+                    (0, 0, {'view_mode': 'list', 'view_id': ref('view_finished_product_list')}),
+                    (0, 0, {'view_mode': 'form', 'view_id': ref('view_finished_product_form')}),
+                ]"/>
     </record>
 
     <menuitem id="menu_finished_product_root"
-                name="San pham da hoan thanh"
+                name="Thành phẩm"
                 sequence="10"/>
     
     <menuitem id="menu_finished_product_action"
-                name="Tem thanh pham"
+                name="Nhập thông tin sản phẩm"
                 parent="menu_finished_product_root"
                 action="action_finished_product"
                 sequence="10"/>
