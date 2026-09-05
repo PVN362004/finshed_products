@@ -7,6 +7,20 @@
                 <t t-call="web.external_layout">
                     <div class="page" style="break-after: always; margin-bottom: 20px;">
                         <table style="width: 100%; border-collapse: collapse; border: 2px solid black">
+                            <tr style="height: 120px;">
+                                <td style="width: 33%; text-align:center; border: 1px solid black; vertical-align:middle; line-height: 0;">
+                                    <img src="/finshed_products/static/Picture1.png" 
+                                        alt="Image is not loading"
+                                        height="80" width="160" />
+                                </td>
+                                <td style="width: 33%; font-weight: bold; border: 1px solid black; text-align: center; vertical-align:middle;">Tem thành phẩm</td>
+                                <td style="width: 34%; border: 1px solid black; text-align:center; vertical-align:middle; ">
+                                    <img t-att-src="'/report/barcode/QR/' + (o.product_name)"  
+                                            style="width:160px; height:100px"
+                                            />
+                                </td>
+                            </tr> 
+
                             <tr style="font-weight: bold; height: 30px;">
                                 <td style="width: 33%; border: 1px solid black; text-align: center;">Mã hàng</td>
                                 <td style="width: 33%; border: 1px solid black; text-align: center;">Tên hàng</td>

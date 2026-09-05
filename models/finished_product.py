@@ -2,7 +2,6 @@ from datetime import date
 from odoo import api, models, fields
 import math
 
-
 class FinishedProduct(models.Model):
     _name = 'finished.product'
     _description = 'Finished Product Model'
@@ -42,8 +41,11 @@ class FinishedProduct(models.Model):
             else:
                 record.quantity_per_pallet = 0
 
+
+
 class CustomerPartner(models.Model):
     _name = 'customer.partner'
     _description = 'Customer Partner Model'
 
     name = fields.Char(string='Ten khach hang', required=True)
+

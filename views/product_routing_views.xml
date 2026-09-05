@@ -11,7 +11,7 @@
                         <field name="product_name"/>
                         <field name="product_code"/>
                         <field name="customer_name"/>
-                        <field name="quantity" class="text-center"/>
+                        <field name="quantity"/>
                         <field name="delivery_date"/>
                         <field name="pallet_number"/>
                         <field name="note"/>
